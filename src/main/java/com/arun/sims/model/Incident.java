@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Document(indexName = "incidents")
+@Document(indexName = "incidents", createIndex = false)
 public class Incident {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

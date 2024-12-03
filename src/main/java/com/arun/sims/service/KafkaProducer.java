@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class KafkaProducer {
-    @Autowired
-    private KafkaProducer kafkaProducer;
+
     private final KafkaTemplate<String, String> kafkaTemplate;
 
 
@@ -21,6 +20,6 @@ public class KafkaProducer {
     }
 
     public void logIncidentToKafka(Incident incident) {
-        kafkaProducer.sendMessage("incident-topic", incident.toString());
+        kafkaTemplate.send("incident-topic", incident.toString());
     }
 }
