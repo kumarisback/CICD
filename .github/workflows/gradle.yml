@@ -38,7 +38,16 @@ jobs:
       run: chmod +x ./gradlew
       
     - name: Build with Gradle Wrapper
-      run: ./gradlew build
+      run: ./gradlew build jacocoTestReport
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+               files: build/reports/jacoco/test/jacocoTestReport.xml
+               flags: unittests
+               name: ${{ github.repository }}
+
+    - name: Generate Coverage Badge
+      run: curl --data-binary @build/reports/jacoco/test/jacocoTestReport.xml https://shields.io/endpoint -o coverage-badge.json
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.

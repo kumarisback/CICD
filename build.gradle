@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.4.0'
 	id 'io.spring.dependency-management' version '1.1.6'
+	id 'jacoco' // Apply the JaCoCo plugin
 }
 
 group = 'com.example'
@@ -15,6 +16,10 @@ java {
 
 repositories {
 	mavenCentral()
+}
+
+jacoco {
+	toolVersion = "0.8.10" // Use the latest version of JaCoCo
 }
 
 dependencies {
@@ -37,4 +42,14 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.jacocoTestReport {
+	dependsOn test // Tests must run before generating the report
+
+	reports {
+		xml.required.set(true) // Required for GitHub Actions
+		html.required.set(true) // Useful for local viewing
+		csv.required.set(false)
+	}
 }
