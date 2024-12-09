@@ -14,4 +14,4 @@ This is a Java project with a CI/CD pipeline using GitHub Actions.
 ## Features
 - Automated builds
 - Dependency management with Dependabot
-- Code coverage reports as artifacts
+- Code coverage need some work
