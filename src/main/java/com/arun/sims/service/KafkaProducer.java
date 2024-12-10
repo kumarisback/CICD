@@ -1,7 +1,6 @@
 package com.arun.sims.service;
 
-import com.arun.sims.model.Incident;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.arun.sims.model.Client;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,7 @@ public class KafkaProducer {
         kafkaTemplate.send(topic, message);
     }
 
-    public void logIncidentToKafka(Incident incident) {
-        kafkaTemplate.send("incident-topic", incident.toString());
+    public void logIncidentToKafka(Client client) {
+        kafkaTemplate.send("incident-topic", client.toString());
     }
 }
