@@ -4,8 +4,6 @@
 
 [![Sims Consumer](https://github.com/kumarisback/CICD/actions/workflows/gradel.yml/badge.svg)](https://github.com/kumarisback/CICD/actions/workflows/gradel.yml)
 
-![Build Status](https://github.com/kumarisback/CICD/actions/workflows/gradel.yml/simsconsumer.svg)
-![Build Status](https://github.com/kumarisback/CICD/actions/workflows/gradle.yml/simsproducer.svg)
 ![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen)
 ![License](https://img.shields.io/github/license/kumarisback/CICD)
 ![Stars](https://img.shields.io/github/stars/kumarisback/CICD)
