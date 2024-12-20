@@ -1,0 +1,18 @@
+Download kafka
+
+Run following command in kafak folder to boot 
+1) zookeeper 
+2) kafka
+
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+create topic
+.\bin\windows\kafka-topics.bat --create --topic memoryInfo --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+.\bin\windows\kafka-topics.bat --create --topic jvmInfo --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+command to list all topic
+.\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+
+command to list all consumer
+.\bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
