@@ -62,7 +62,3 @@ tasks.jacocoTestReport {
 		csv.required.set(false)
 	}
 }
-
-tasks.register('wrapper', Wrapper) {
-	gradleVersion = '8.11.1'
-}
