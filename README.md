@@ -1,6 +1,7 @@
 # My Project
 
 ![Build Status](https://github.com/kumarisback/CICD/simsproducer/actions/workflows/gradle.yml/badge.svg)
+![Build Status](https://github.com/kumarisback/CICD/actions/workflows/gradle.yml/badge.svg)
 ![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen)
 ![License](https://img.shields.io/github/license/kumarisback/CICD)
 ![Stars](https://img.shields.io/github/stars/kumarisback/CICD)
