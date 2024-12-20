@@ -1,0 +1,52 @@
+name: Sims Consumer - Project 2
+
+on:
+  push:
+    paths:
+      - 'simsconsumer/**'
+  pull_request:
+    paths:
+      - 'simsconsumer/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+    - name: Make Gradlew Executable
+      run: chmod +x ./project1/gradlew
+    - name: Build with Gradle Wrapper
+      run: cd project1 && ./gradlew build jacocoTestReport
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        files: project1/build/reports/jacoco/test/jacocoTestReport.xml
+        flags: unittests
+        name: Project1
+    - name: Generate Coverage Badge
+      run: curl --data-binary @project1/build/reports/jacoco/test/jacocoTestReport.xml https://shields.io/endpoint -o project1-coverage-badge.json
+
+  dependency-submission:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - name: Generate and submit dependency graph
+      uses: gradle/actions/dependency-submission@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
