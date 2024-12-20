@@ -1,4 +1,4 @@
-name: Sims Consumer - Project 2
+name: Sims Consumer
 
 on:
   push:
@@ -32,9 +32,9 @@ jobs:
       with:
         files: simsconsumer/build/reports/jacoco/test/jacocoTestReport.xml
         flags: unittests
-        name: Project1
+        name: simsconsumer
     - name: Generate Coverage Badge
-      run: curl --data-binary @project1/build/reports/jacoco/test/jacocoTestReport.xml https://shields.io/endpoint -o simsconsumer.json
+      run: curl --data-binary @simsconsumer/build/reports/jacoco/test/jacocoTestReport.xml https://shields.io/endpoint -o simsconsumer.json
 
   dependency-submission:
     runs-on: ubuntu-latest
