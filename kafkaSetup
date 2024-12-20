@@ -13,3 +13,6 @@ create topic
 
 command to list all topic
 .\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+
+command to list all consumer
+.\bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list

@@ -1,6 +1,5 @@
 package com.arun.sims.service;
 
-import com.arun.sims.model.Client;
 import com.arun.sims.model.JvmMemoryInfo;
 import com.arun.sims.model.SystemMemoryInfo;
 import com.sun.management.OperatingSystemMXBean;
@@ -24,7 +23,7 @@ public class KafkaProducer {
         kafkaTemplate.send(topic,message);
     }
 
-    @Scheduled(fixedRate = 2000) // Runs every 5 seconds
+    @Scheduled(fixedRate = 5000) // Runs every 5 seconds
     public void checkMemoryUsage() {
         try {
             Runtime runtime = Runtime.getRuntime();
@@ -44,7 +43,7 @@ public class KafkaProducer {
         }
     }
 
-    @Scheduled(fixedRate = 4000) // Runs every 1 seconds
+    @Scheduled(fixedRate = 5000) // Runs every 1 seconds
     public void checkSystemMemoryUsage() {
         try {
             OperatingSystemMXBean osBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
