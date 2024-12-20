@@ -24,17 +24,17 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
     - name: Make Gradlew Executable
-      run: chmod +x ./project1/gradlew
+      run: chmod +x ./simsconsumer/gradlew
     - name: Build with Gradle Wrapper
-      run: cd project1 && ./gradlew build jacocoTestReport
+      run: cd simsconsumer && ./gradlew build jacocoTestReport
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
       with:
-        files: project1/build/reports/jacoco/test/jacocoTestReport.xml
+        files: simsconsumer/build/reports/jacoco/test/jacocoTestReport.xml
         flags: unittests
         name: Project1
     - name: Generate Coverage Badge
-      run: curl --data-binary @project1/build/reports/jacoco/test/jacocoTestReport.xml https://shields.io/endpoint -o project1-coverage-badge.json
+      run: curl --data-binary @project1/build/reports/jacoco/test/jacocoTestReport.xml https://shields.io/endpoint -o simsconsumer.json
 
   dependency-submission:
     runs-on: ubuntu-latest
