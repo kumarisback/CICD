@@ -10,9 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling
 public class SimsApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(SimsApplication.class, args);
-	}
-
+		}
 }
